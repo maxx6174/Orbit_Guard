@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="Segoe UI,Arial" font-size="14">
+<rect width="760" height="300" fill="#0b1220"/>
+<rect x="20" y="40" width="200" height="200" rx="12" fill="#111827" stroke="#38bdf8"/><text x="120" y="70" fill="#38bdf8" text-anchor="middle" font-weight="700">EARTH STATION</text>
+<text x="120" y="110" fill="#e2e8f0" text-anchor="middle">Detect silence</text><text x="120" y="135" fill="#e2e8f0" text-anchor="middle">Retry primary</text><text x="120" y="160" fill="#e2e8f0" text-anchor="middle">Try backup / low-rate</text><text x="120" y="185" fill="#e2e8f0" text-anchor="middle">Boost uplink, wait window</text>
+<rect x="270" y="90" width="220" height="100" rx="12" fill="#111827" stroke="#22c55e"/><text x="380" y="125" fill="#22c55e" text-anchor="middle" font-weight="700">SIMULATED CHANNEL</text><text x="380" y="150" fill="#e2e8f0" text-anchor="middle">signal · delay · packet loss</text><text x="380" y="172" fill="#e2e8f0" text-anchor="middle">mode match required</text>
+<rect x="540" y="40" width="200" height="200" rx="12" fill="#111827" stroke="#a855f7"/><text x="640" y="70" fill="#c084fc" text-anchor="middle" font-weight="700">PROBE + ORBIT-GUARD</text>
+<text x="640" y="110" fill="#e2e8f0" text-anchor="middle">CHECK → DIAGNOSE</text><text x="640" y="135" fill="#e2e8f0" text-anchor="middle">→ CHOOSE → TRY</text><text x="640" y="160" fill="#e2e8f0" text-anchor="middle">→ VERIFY</text><text x="640" y="190" fill="#e2e8f0" text-anchor="middle">Mission data storage</text>
+<line x1="220" y1="140" x2="270" y2="140" stroke="#94a3b8" stroke-width="3"/><line x1="490" y1="140" x2="540" y2="140" stroke="#94a3b8" stroke-width="3"/>
+<text x="380" y="275" fill="#facc15" text-anchor="middle">SOFTWARE SIMULATION - not real space hardware</text></svg>

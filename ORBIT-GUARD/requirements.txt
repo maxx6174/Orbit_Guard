@@ -1,0 +1,5 @@
+# Target: Windows 10/11, Python 3.13.x (versions chosen because they publish Python 3.13 wheels)
+# (the simulation core itself only needs the standard library; these are for the dashboard + tests)
+streamlit>=1.40,<2
+pandas>=2.2.3
+pytest>=8.3

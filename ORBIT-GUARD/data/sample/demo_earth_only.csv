@@ -1,0 +1,35 @@
+tick,clock,source,level,message
+0,19:40:00,MISSION,info,Mission started (Earth Only) - SIMULATED PLANETARY DATA
+15,19:40:15,FAULT,bad,FAULT INJECTED: ANTENNA FAILURE - Main antenna pointing/health drops sharply
+16,19:40:16,LINK,bad,Communication LOST: Signal below decode limit
+18,19:40:18,EARTH,bad,Earth detected connection loss - recovery started
+19,19:40:19,EARTH,info,Earth attempt #1: RETRY NORMAL COMMUNICATION
+23,19:40:23,EARTH,info,Earth attempt #2: TRY BACKUP MODE
+27,19:40:27,EARTH,info,Earth attempt #3: TRY LOW-RATE MODE
+31,19:40:31,EARTH,info,Earth attempt #4: BOOST UPLINK POWER
+35,19:40:35,EARTH,info,Earth attempt #5: WAIT FOR NEXT WINDOW
+39,19:40:39,EARTH,info,Earth attempt #6: RETRY NORMAL COMMUNICATION
+43,19:40:43,EARTH,info,Earth attempt #7: TRY BACKUP MODE
+47,19:40:47,EARTH,info,Earth attempt #8: TRY LOW-RATE MODE
+51,19:40:51,EARTH,info,Earth attempt #9: BOOST UPLINK POWER
+55,19:40:55,EARTH,info,Earth attempt #10: WAIT FOR NEXT WINDOW
+56,19:40:56,PROBE,bad,Storage full - oldest mission data is being overwritten
+59,19:40:59,EARTH,info,Earth attempt #11: RETRY NORMAL COMMUNICATION
+63,19:41:03,EARTH,info,Earth attempt #12: TRY BACKUP MODE
+67,19:41:07,EARTH,info,Earth attempt #13: TRY LOW-RATE MODE
+71,19:41:11,EARTH,info,Earth attempt #14: BOOST UPLINK POWER
+75,19:41:15,EARTH,info,Earth attempt #15: WAIT FOR NEXT WINDOW
+79,19:41:19,EARTH,info,Earth attempt #16: RETRY NORMAL COMMUNICATION
+83,19:41:23,EARTH,info,Earth attempt #17: TRY BACKUP MODE
+87,19:41:27,EARTH,info,Earth attempt #18: TRY LOW-RATE MODE
+91,19:41:31,EARTH,info,Earth attempt #19: BOOST UPLINK POWER
+95,19:41:35,EARTH,info,Earth attempt #20: WAIT FOR NEXT WINDOW
+99,19:41:39,EARTH,info,Earth attempt #21: RETRY NORMAL COMMUNICATION
+103,19:41:43,EARTH,info,Earth attempt #22: TRY BACKUP MODE
+107,19:41:47,EARTH,info,Earth attempt #23: TRY LOW-RATE MODE
+111,19:41:51,EARTH,info,Earth attempt #24: BOOST UPLINK POWER
+115,19:41:55,FAULT,info,ANTENNA FAILURE cleared (simulated natural end of condition)
+116,19:41:56,LINK,good,COMMUNICATION RESTORED after 100 ticks
+116,19:41:56,PROBE,info,Stored mission data transfer started (33 packets waiting)
+116,19:41:56,EARTH,good,Earth link re-established on PRIMARY mode
+127,19:42:07,EARTH,good,Data transfer complete - 40 of 99 outage packets recovered

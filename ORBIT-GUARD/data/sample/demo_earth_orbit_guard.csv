@@ -1,0 +1,20 @@
+tick,clock,source,level,message
+0,19:40:00,MISSION,info,Mission started (Earth + ORBIT-GUARD) - SIMULATED PLANETARY DATA
+15,19:40:15,FAULT,bad,FAULT INJECTED: ANTENNA FAILURE - Main antenna pointing/health drops sharply
+16,19:40:16,LINK,bad,Communication LOST: Signal below decode limit
+18,19:40:18,EARTH,bad,Earth detected connection loss - recovery started
+18,19:40:18,ORBIT-GUARD,bad,ORBIT-GUARD detected communication loss
+18,19:40:18,ORBIT-GUARD,warn,Entering COMMUNICATION RECOVERY MODE
+18,19:40:18,ORBIT-GUARD,info,Action STORE DATA: Protected mission storage enabled (400 packets)
+19,19:40:19,EARTH,info,Earth attempt #1: RETRY NORMAL COMMUNICATION
+19,19:40:19,PROBE,info,"System check: battery 86%, antenna FAILED, TX OK, RX OK, mode PRIMARY"
+20,19:40:20,ORBIT-GUARD,info,Diagnosis: antenna is degraded (89%)
+21,19:40:21,ORBIT-GUARD,info,"Chosen: Switch to backup communication mode (confidence 0.77, priority 1)"
+22,19:40:22,PROBE,info,Probe attempt #1: Probe mode is now BACKUP
+23,19:40:23,EARTH,info,Earth attempt #2: TRY BACKUP MODE
+25,19:40:25,LINK,good,COMMUNICATION RESTORED after 9 ticks
+25,19:40:25,PROBE,info,Stored mission data transfer started (8 packets waiting)
+25,19:40:25,EARTH,good,Earth link re-established on BACKUP mode
+27,19:40:27,ORBIT-GUARD,good,Communication restored after 9 ticks - returning to normal mode
+27,19:40:27,PROBE,info,Status report sent to Earth
+37,19:40:37,EARTH,good,Data transfer complete - 8 of 8 outage packets recovered
