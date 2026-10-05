@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBIT-GUARD | Planetary Probe Communication Recovery</title>
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #050816;
+        color: #e8ecff;
+        line-height: 1.6;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(5, 8, 22, 0.92);
+        border-bottom: 1px solid #202746;
+        backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+        max-width: 1150px;
+        margin: auto;
+        padding: 18px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #67e8f9;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 24px;
+        font-size: 14px;
+        color: #aeb8d8;
+    }
+
+    .nav-links a:hover {
+        color: #67e8f9;
+    }
+
+    .hero {
+        min-height: 88vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 24px;
+        background:
+            radial-gradient(circle at 50% 20%, #14245c 0%, #080d25 38%, #050816 70%);
+    }
+
+    .hero-content {
+        max-width: 900px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid #3158a8;
+        border-radius: 30px;
+        color: #67e8f9;
+        background: rgba(19, 36, 82, 0.45);
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        font-size: clamp(48px, 9vw, 92px);
+        letter-spacing: 8px;
+        margin-bottom: 18px;
+        color: #ffffff;
+    }
+
+    .hero h2 {
+        font-size: clamp(22px, 4vw, 38px);
+        color: #67e8f9;
+        margin-bottom: 22px;
+    }
+
+    .hero p {
+        max-width: 760px;
+        margin: auto;
+        color: #aeb8d8;
+        font-size: 18px;
+    }
+
+    .buttons {
+        margin-top: 34px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .button {
+        padding: 13px 22px;
+        border-radius: 8px;
+        border: 1px solid #3158a8;
+        background: #101a3c;
+        color: #ffffff;
+        font-weight: 700;
+        transition: 0.2s;
+    }
+
+    .button.primary {
+        background: #0e7490;
+        border-color: #22d3ee;
+    }
+
+    .button:hover {
+        transform: translateY(-2px);
+        border-color: #67e8f9;
+    }
+
+    section {
+        max-width: 1150px;
+        margin: auto;
+        padding: 90px 24px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
+
+    .section-title p {
+        color: #8f9abb;
+    }
+
+    .overview {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 30px;
+    }
+
+    .card {
+        background: #0a1026;
+        border: 1px solid #202b50;
+        border-radius: 14px;
+        padding: 28px;
+    }
+
+    .card h3 {
+        color: #67e8f9;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: #aeb8d8;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .feature {
+        background: #0a1026;
+        border: 1px solid #202b50;
+        border-radius: 14px;
+        padding: 25px;
+        transition: 0.2s;
+    }
+
+    .feature:hover {
+        transform: translateY(-4px);
+        border-color: #3158a8;
+    }
+
+    .feature-icon {
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+
+    .feature h3 {
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+
+    .feature p {
+        color: #8f9abb;
+        font-size: 14px;
+    }
+
+    .architecture {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+
+    .architecture div {
+        text-align: center;
+        padding: 22px 12px;
+        background: #0a1026;
+        border: 1px solid #202b50;
+        border-radius: 12px;
+    }
+
+    .architecture strong {
+        display: block;
+        color: #67e8f9;
+        margin-bottom: 6px;
+    }
+
+    .architecture span {
+        color: #8f9abb;
+        font-size: 13px;
+    }
+
+    .stack {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .tech {
+        padding: 10px 16px;
+        border-radius: 20px;
+        background: #101a3c;
+        border: 1px solid #273760;
+        color: #cbd5ff;
+    }
+
+    .demo {
+        text-align: center;
+        background: linear-gradient(135deg, #0a1026, #101a3c);
+        border: 1px solid #26365f;
+        border-radius: 18px;
+        padding: 55px 25px;
+    }
+
+    .demo h2 {
+        font-size: 34px;
+        margin-bottom: 15px;
+    }
+
+    .demo p {
+        max-width: 700px;
+        margin: auto;
+        color: #aeb8d8;
+    }
+
+    footer {
+        border-top: 1px solid #202746;
+        text-align: center;
+        padding: 35px 20px;
+        color: #707b9d;
+        font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+        .nav-links {
+            display: none;
+        }
+
+        .overview {
+            grid-template-columns: 1fr;
+        }
+
+        .features {
+            grid-template-columns: 1fr;
+        }
+
+        .architecture {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 500px) {
+        .architecture {
+            grid-template-columns: 1fr;
+        }
+
+        h1 {
+            letter-spacing: 4px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<nav class="nav">
+    <div class="nav-inner">
+        <div class="logo">ORBIT-GUARD</div>
+
+        <div class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#features">Features</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#technology">Technology</a>
+            <a href="#demo">Demo</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <div class="badge">PLANETARY PROBE COMMUNICATION RECOVERY SYSTEM</div>
+
+        <h1>ORBIT-GUARD</h1>
+
+        <h2>Mission Communication Recovery</h2>
+
+        <p>
+            An intelligent software simulation designed to model how a planetary
+            probe can detect communication failures, diagnose mission conditions,
+            recover communication, and maintain reliable two-way communication
+            with Earth.
+        </p>
+
+        <div class="buttons">
+            <a class="button primary"
+               href="https://github.com/maxx6174/Orbit_Guard"
+               target="_blank">
+                View GitHub Repository
+            </a>
+
+            <a class="button"
+               href="https://github.com/maxx6174/Orbit_Guard/blob/main/README.md"
+               target="_blank">
+                Read Documentation
+            </a>
+        </div>
+    </div>
+</header>
+
+<section id="overview">
+    <div class="section-title">
+        <h2>Mission Overview</h2>
+        <p>Software simulation for resilient deep-space communication.</p>
+    </div>
+
+    <div class="overview">
+        <div class="card">
+            <h3>What is ORBIT-GUARD?</h3>
+
+            <p>
+                ORBIT-GUARD simulates an intelligent planetary probe communication
+                system. The system observes probe conditions, identifies possible
+                communication failures, evaluates the situation, selects recovery
+                actions, and attempts to restore communication with Earth.
+            </p>
+
+            <br>
+
+            <p>
+                The project demonstrates how autonomous decision-making can improve
+                spacecraft communication resilience when direct communication is
+                interrupted or degraded.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Core Objective</h3>
+
+            <p>
+                Detect communication problems early and intelligently recover the
+                communication link while preserving mission data and maintaining
+                reliable two-way communication.
+            </p>
+
+            <br>
+
+            <p>
+                The simulation provides a safe environment for testing mission
+                failures and recovery strategies without requiring real spacecraft
+                hardware.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="features">
+    <div class="section-title">
+        <h2>Key Capabilities</h2>
+        <p>Core functions demonstrated by the ORBIT-GUARD simulation.</p>
+    </div>
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🛰️</div>
+            <h3>Probe Monitoring</h3>
+            <p>
+                Continuously represents probe status, mission conditions,
+                communication state, storage and operational parameters.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📡</div>
+            <h3>Communication Recovery</h3>
+            <p>
+                Simulates detection and recovery of communication failures
+                between the planetary probe and Earth.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🧠</div>
+            <h3>Intelligent Diagnosis</h3>
+            <p>
+                Evaluates observed conditions and identifies possible causes
+                of communication degradation or failure.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <h3>Two-Way Communication</h3>
+            <p>
+                Models communication in both directions between the spacecraft
+                and the Earth station.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚠️</div>
+            <h3>Fault Simulation</h3>
+            <p>
+                Allows different mission and communication faults to be
+                represented and tested inside the simulation.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📊</div>
+            <h3>Mission Visualization</h3>
+            <p>
+                Provides a Streamlit dashboard for observing mission state,
+                communication events and recovery behaviour.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="architecture">
+    <div class="section-title">
+        <h2>System Architecture</h2>
+        <p>High-level flow of the ORBIT-GUARD simulation.</p>
+    </div>
+
+    <div class="architecture">
+        <div>
+            <strong>1. Probe</strong>
+            <span>Generates mission data and system status.</span>
+        </div>
+
+        <div>
+            <strong>2. Observation</strong>
+            <span>Monitors communication and mission conditions.</span>
+        </div>
+
+        <div>
+            <strong>3. Diagnosis</strong>
+            <span>Analyzes failures and determines possible causes.</span>
+        </div>
+
+        <div>
+            <strong>4. Recovery</strong>
+            <span>Selects and executes communication recovery actions.</span>
+        </div>
+    </div>
+</section>
+
+<section id="technology">
+    <div class="section-title">
+        <h2>Technology Stack</h2>
+        <p>Technologies used to build the prototype.</p>
+    </div>
+
+    <div class="stack">
+        <span class="tech">Python</span>
+        <span class="tech">Streamlit</span>
+        <span class="tech">Simulation Engine</span>
+        <span class="tech">AI / Decision Logic</span>
+        <span class="tech">CSV Mission Data</span>
+        <span class="tech">Git</span>
+        <span class="tech">GitHub</span>
+    </div>
+</section>
+
+<section id="demo">
+    <div class="demo">
+        <h2>Explore ORBIT-GUARD</h2>
+
+        <p>
+            Explore the source code, documentation and simulation implementation
+            through the project repository.
+        </p>
+
+        <div class="buttons">
+            <a class="button primary"
+               href="https://github.com/maxx6174/Orbit_Guard"
+               target="_blank">
+                Open GitHub
+            </a>
+
+            <a class="button"
+               href="https://github.com/maxx6174/Orbit_Guard/tree/main/docs"
+               target="_blank">
+                Project Documentation
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>ORBIT-GUARD • Planetary Probe Communication Recovery Simulation</p>
+    <p>Built with Python and Streamlit</p>
+</footer>
+```
+
+</body>
+</html>
